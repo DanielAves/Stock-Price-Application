@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Stock price app</title>
+    <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-default bg-dark">
+        <div class="container-fluid ">
+            <div class = "navbar-header">
+                <a class="navbar-brand" style="color: white">Stock Quote</a>
+            </div>
+            <p class="navbar-text navbar-right"></p>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <br>
+    <div class="container">
+        <div class="formContainer">
+            <label for="stockCodeInput">Enter a company name:</label>
+            <div class="row">
+                <div class="col-md-8">
+                        <input type="text" class="form-control" id="stockCodeInput"></input>
+                </div>
+
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-info" onclick="postDataFromAPI()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <p id="errorMsg"></p>
+    </div>
+
+    <div class="container">
+        <h2>Stock Details</h2>
+        <br>
+
+        <div class="stockCode">
+            <p>Stock Code:</p> <p class="font-weight-bold" id="result"> </p>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Price $</th>
+                <th>Time</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p id="CDate"> </p></td>
+                    <td> <p id="CPrice"> </p></td>
+                    <td>  <p id="CTime"> </p></td>
+                </tr>
+                <tr>
+                    <td><p id="PDate"> </p></td>
+                    <td> <p id="PPrice"> </p></td>
+                    <td>  <p id="PTime"> </p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h5> Percentage Change</h5>
+        <br>
+        <div class="percIncrease">
+            <p id="result4"> </p>
+        </div>
+    </div>
+</div>
+
+
+    <footer class="footer" style="position: absolute; bottom:0;background-color: #f5f5f5;">
+        <p class="text-muted">Query run at</p>
+        <p th:text="${datetime}" class="text-muted"> Query ran at - </p>
+    </footer>
+</body>
+
+
+
+
+</html>
